@@ -14,9 +14,12 @@
             flex-direction: column;
             height: 100vh;
             margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
         }
+
         .container {
-            width: 80%;
+            width: 100%;
             max-width: 800px;
             background: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -25,21 +28,32 @@
             margin-bottom: 20px;
             text-align: center;
             position: relative;
+            box-sizing: border-box;
         }
+
         h1 {
             color: #333;
+            font-size: 1.5em;
+            margin: 0.5em 0;
         }
+
         .price-display {
             margin-bottom: 20px;
+            font-size: 1.2em;
         }
+
         canvas {
             margin-top: 20px;
+            width: 100% !important;
+            height: auto !important;
         }
+
         .button-container {
             position: absolute;
             top: 20px;
             left: 20px;
         }
+
         .button-container img {
             margin: 20px;
             width: 50px;
@@ -62,7 +76,6 @@
         </div>
         <canvas id="priceChart"></canvas>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Функция для генерации последних 12 месяцев
@@ -117,6 +130,7 @@
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: {
                         beginAtZero: true
@@ -130,7 +144,6 @@
             // Перемещаем предыдущие цены на один месяц назад
             vOcoinData.shift();
             vOcoinData.push(newVocoPrice);
-
             krokyData.shift();
             krokyData.push(newKrokyPrice);
 
